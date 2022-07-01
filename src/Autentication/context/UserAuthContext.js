@@ -7,8 +7,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { auth } from "../firebase";
-import { db } from "../firebase";
+import { auth } from "../../firebase";
+import { db } from "../../firebase";
 import {
   collection,
   getDocs,
