@@ -3,7 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import {useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { loadProducts } from "./Reducer/Action";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
@@ -16,19 +16,19 @@ import { AddCart } from "./Reducer/Action";
 
 const BreakFast = () => {
   const [data, setData] = useState([]);
-  let {itemId} =useParams();
-const {users}=useSelector((state)=>state.data);
-let dispatch =useDispatch()
+  let { itemId } = useParams();
+  const { users } = useSelector((state) => state.data);
+  let dispatch = useDispatch()
 
-  
-    useEffect(() => {
-      dispatch(loadProducts());
-  
+
+  useEffect(() => {
+    dispatch(loadProducts());
+
   }, []);
 
-  const Addcart =(itemId)=>{
-   
-   dispatch(AddCart(data,itemId));
+  const Addcart = (itemId) => {
+
+    dispatch(AddCart(data, itemId));
   };
   return (
     <div>
@@ -55,7 +55,7 @@ let dispatch =useDispatch()
                 role="group"
                 aria-label="Basic mixed styles example"
               >
-                <button type="button" class="btn btn-primary"  onClick={()=>Addcart(product.itemId)}>
+                <button type="button" class="btn btn-primary" onClick={() => Addcart(product.itemId)}>
                   Add to cart
                 </button>{" "}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -9,9 +9,9 @@ const initialState = {
     loading: false,
 };
 
-const MenuItemreducer = (state = initialState, action) => {
+const CartItemreducer = (state = initialState, action) => {
     switch (action.type) {
-        case types.UPDATE_USER:
+        case types.REMOVE_CART:
             return {
                 ...state,
                 loading: false,
@@ -22,10 +22,11 @@ const MenuItemreducer = (state = initialState, action) => {
                 users: action.payload,
                 loading: false,
             }
+
         default:
             return state;
 
     }
 }
 
-export default MenuItemreducer
+export default CartItemreducer;

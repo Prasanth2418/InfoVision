@@ -1,73 +1,123 @@
 .heading {
-    margin-top: 45px;
-    margin-left: 70px;
-    position: relative;
-  }
-  
-@media only screen and (min-width: 600px) {
-   
-    .resp1 {
-      justify-content: center;
-      display: flex;
-    }
-    .content {
-      padding-top: 30px;
-    }
-    .content1 {
-      padding-top: 10px;
-    }
-    .resp2 {
-      justify-content: center;
-    }
-   .productContainer {
+  margin-top: 45px;
+  margin-left: 70px;
+  position: relative;
+}
 
-        width: 58%;
-    
-        padding: 0;
-    
-      }
+
+@media only screen and (min-width: 600px) {
+
+  .main {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 80px;
   }
-  
-  .summary {
-    background: lightgrey;
-    padding: 10px;
-    margin: 8px;
-    border-radius: 5px;
-    border: 1.5px solid gray;
-  }
-  
-  .summary1 {
-    background: lightgray;
-    padding: 10px;
-    margin: 8px;
-    border-radius: 5px;
-    border: 1.5px solid gray;
-  }
-  
-  .payment {
-    float: right;
-    justify-content: space-between;
-  }
-  
-  .pay {
-    margin-left: 10px;
-  }
-  .pay1 {
-    width: 100px;
-  }
-  .home{
+
+  .resp1 {
+    justify-content: center;
     display: flex;
   }
+
+
+
+  .content1 {
+    padding-top: 10px;
+  }
+
+  .resp2 {
+    justify-content: center;
+  }
+
   .productContainer {
 
-    display: flex;
-  
-    width: 78%;
-  
-    padding: 20px;
-  
-    flex-wrap: wrap;
-  
-    justify-content: space-around;
-  
+    padding: 0;
+
   }
+}
+
+.summary {
+  background: lightgrey;
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1.5px solid gray;
+}
+
+.summary1 {
+  background: lightgray;
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1.5px solid gray;
+}
+
+.payment {
+  float: right;
+  justify-content: space-between;
+}
+
+.pay {
+  margin-left: 10px;
+}
+
+.pay1 {
+  width: 100px;
+}
+
+.home {
+  display: flex;
+}
+
+.productContainer {
+
+  display: flex;
+
+  padding: 20px;
+
+  flex-wrap: wrap;
+
+  justify-content: space-around;
+
+}
+
+.CartDetails {
+  border: 0.5px solid rgb(24, 24, 24);
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.containt {
+
+  margin-top: 40px;
+}
+
+.increment_decreament button {
+
+  border-radius: 5px;
+
+
+}
+
+
+
+
+
+.floor_details {
+
+  height: inherit;
+  border: 1px solid black;
+  padding-left: 25px;
+  background-color: rgb(216, 218, 218);
+  border-radius: 10px;
+
+}
+
+.total_price {
+  margin-left: 30px;
+
+}
+
+.footer {
+  display: flex;
+  margin: 50px;
+}
