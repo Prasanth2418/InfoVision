@@ -10,14 +10,15 @@ import Cart from "./Pages/Cart/Cart";
 import HomeScreen from "./Pages/HomePage/HomeScreen";
 import LoginPage from "./Autentication/LoginPage/LoginPage";
 import SignupPage from "./Autentication/SignUpPage/SignUpPage";
+import { SuccessPage } from "./Pages/Payment/SucessPage";
 
 function App() {
   return (
     <>
+      <NavBar />
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        <NavBar />
         <Route path="/home" element={<HomeScreen />} />
         <Route path="/MenuPage" element={<MenuPage />} />
         <Route path="/Breakfast" element={<BreakFast />} />
@@ -25,6 +26,7 @@ function App() {
         <Route path="/Snacks" element={<Snacks />} />
         <Route path="/Dinner" element={<Dinner />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/Success" element={<SuccessPage />} />
       </Routes>
     </>
   );
