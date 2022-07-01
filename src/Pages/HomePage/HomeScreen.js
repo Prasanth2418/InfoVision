@@ -1,4 +1,3 @@
-
 import React from "react";
 import "./homepage.css";
 import { useNavigate } from "react-router-dom";
@@ -30,7 +29,7 @@ const HomeScreen = () => {
             <div class="col-12 col-md-4">
               <div class="wcu-card p-3 mb-3">
                 <img
-                  src="https://cdn2.vectorstock.com/i/1000x1000/52/06/menu-restaurant-food-service-logo-hand-holding-vector-23445206.jpg"
+                  src="https://thumbs.dreamstime.com/z/restaurant-logo-label-menu-food-service-symbol-vector-illustration-restaurant-logo-label-menu-food-service-symbol-vector-134861170.jpg"
                   class="wcu-card-image"
                 />
                 <h1 class="wcu-card-title mt-3">Food Service</h1>
