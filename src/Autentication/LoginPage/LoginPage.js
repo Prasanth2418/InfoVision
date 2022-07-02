@@ -1,79 +1,152 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Form, Alert } from "react-bootstrap";
-import { Button } from "react-bootstrap";
-import GoogleButton from "react-google-button";
-import { useUserAuth } from "../context/UserAuthContext";
+import "../LoginPage/loginpage.css";
+// import Image from "../../Assets/Images/Image.PNG";
+import { FcGoogle } from "react-icons/fc";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../../firebase";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { sendPasswordResetEmail } from "firebase/auth";
+
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  //   const { logIn, googleSignIn } = useUserAuth();
-  const navigate = useNavigate();
+  const [error, setError] = useState();
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
 
-  //   const handleSubmit = async (e) => {
-  //     e.preventDefault();
-  //     setError("");
-  //     try {
-  //       await logIn(email, password);
-  //       navigate("/home");
-  //     } catch (err) {
-  //       setError(err.message);
-  //     }
-  //   };
+  const { email, password } = data;
+  const changeHandler = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
 
-  //   const handleGoogleSignIn = async (e) => {
-  //     e.preventDefault();
-  //     try {
-  //       await googleSignIn();
-  //       navigate("/home");
-  //     } catch (error) {
-  //       console.log(error.message);
-  //     }
-  //   };
+  
+
+  const Login = (e) => {
+    e.preventDefault();
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .catch((err) => setError("Email or password invalid"));
+  };
+
+  const SignIn = (e) => {
+    e.preventDefault();
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const RestPassword = (e) => {
+    e.preventDefault(e);
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        alert("Reset link sent to your registrated mail successfully ");
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+  
+ 
+
+
+
+  const Navigate = useNavigate();
 
   return (
-    <>
-      <div className="p-4 box">
-        <h2 className="mb-3">Welcome To InfoEat</h2>
-        {error && <Alert variant="danger">{error}</Alert>}
-        <Form onSubmit={"handleSubmit"}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control
-              type="email"
-              placeholder="Email address"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
+    <section className="bg-img vh-100">
+      <div className="container py-5 h-100">
+        <div className="row d-flex align-items-center justify-content-center h-100">
+          <div className="card1 col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+            <center>
+              {error && <div className="alert alert-danger">{error}</div>}
+              <h3>Log in to your Account</h3>
+              <p>Welcome back! Please enter your details</p>
+            </center>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
+            <form>
+              <div className="form-outline mb-4">
+                <label className="form-label" for="form1Example13">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="form1Example13"
+                  className="form-control form-control-lg"
+                  placeholder="Enter your email"
+                  value={email}
+                  name="email"
+                  onChange={changeHandler}
+                />
+              </div>
 
-          <div className="d-grid gap-2">
-            <Button variant="primary" type="Submit">
-              Log In
-            </Button>
+              {/* <!-- Password input --> */}
+              <div className="form-outline mb-4">
+                <label className="form-label" for="form1Example23">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="form1Example23"
+                  className="form-control form-control-lg"
+                  placeholder="Enter your password"
+                  value={password}
+                  name="password"
+                  onChange={changeHandler}
+                />
+              </div>
+
+              <div className="d-flex justify-content-right align-items-right mb-4">
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="form1Example3"
+                  />
+                  <label className="form-check-label" for="form1Example3">
+                    Remember for 30 days{" "}
+                  </label>
+                </div>{" "}
+                <a href="" className="Forgot" onClick={RestPassword}>
+                  Forgot password?
+                </a>
+              </div>
+
+              <button
+                type="submit"
+                className="btn btn-lg signin"
+                onClick={Login}
+              >
+                Sign in
+              </button>
+              <br />
+              <br />
+              <button className="btn gsignin btn-lg " onClick={SignIn}>
+                <FcGoogle /> &nbsp; Sign in with Google
+              </button>
+             
+
+            </form>
+            <br />
+            <center>
+              Don`t have an Account? &nbsp;
+              <a
+                href="#"
+                className="SignUp"
+                onClick={() => Navigate("/SignUp")}
+              >
+                SignUp
+              </a>
+            </center>
           </div>
-        </Form>
-        <hr />
-        <div>
-          <GoogleButton
-            className="g-btn"
-            type="dark"
-            onClick={"handleGoogleSignIn"}
-          />
         </div>
       </div>
-      <div className="p-4 box mt-3 text-center">
-        Don't have an account? <Link to="/signup">Sign up</Link>
-      </div>
-    </>
+    </section>
   );
 };
 

@@ -1,49 +1,31 @@
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import firebase from 'firebase/compat/app';
+
+import 'firebase/compat/firestore';
+
+import "firebase/compat/auth"
+
+
+
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBeFFeaA1QPTypA1PCChwaT5dEe-eLfBYE",
-  authDomain: "loginforinfoeat.firebaseapp.com",
-  projectId: "loginforinfoeat",
-  storageBucket: "loginforinfoeat.appspot.com",
-  messagingSenderId: "460789709313",
-  appId: "1:460789709313:web:9ff32296383c5bf2ac5e00",
+  apiKey: "AIzaSyAoZfgSiOBaVf9uA4VYMVBgPr8VkGdVJ3I",
+  authDomain: "infoeat-bdc23.firebaseapp.com",
+  projectId: "infoeat-bdc23",
+  storageBucket: "infoeat-bdc23.appspot.com",
+  messagingSenderId: "907882855299",
+  appId: "1:907882855299:web:68b6e8bc43bbe75ebc54b6"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export default app;
 
-export const db = getFirestore(app);
-// export const firestore = firebase.firestore();
 
-export const createUserDocument = async (user, additionalData) => {
-  if (!user) return;
+  const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-  const userRef = db.doc(`user/${user.uid}`);
+  const db = firebaseApp.firestore();
 
-  const snapshot = await userRef.get();
-  if (!snapshot.exists) {
-    const { Email } = user;
-    const { Password } = user;
-    const { FirstName } = user;
-    const { LastName } = user;
-    const { EmployeeID } = user;
-    const { displayName } = additionalData;
+  const auth =firebase.auth();
 
-    try {
-      userRef.set(
-        Email,
-        Password,
-        FirstName,
-        LastName,
-        EmployeeID,
-        displayName
-      );
-    } catch (error) {
-      console.log("Error in creating user", error);
-    }
-  }
-};
+
+
+export {auth}
+
+  export default db

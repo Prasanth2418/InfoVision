@@ -84,7 +84,7 @@ const HomeScreen = () => {
                   class="menu-item-image w-100"
                 />
                 <div className="d-flex justify-content-around">
-                  <h1 class="menu-card-title">Break Fast</h1>
+                  <h1 class="menu-card-title">BreakFast</h1>
                   <button
                     class="menu-item-link"
                     onClick={() => Navigate("/Breakfast")}
@@ -209,14 +209,14 @@ const HomeScreen = () => {
             </div>
             <div class="col-12">
               <div class="d-flex flex-row justify-content-center">
-                <a href="https://twitter.com/infovision_inc" target="_blank">
+                <a href="https://twitter.com/InfoEat1" target="_blank">
                   <div class="follow-us-icon-container">
                     <i class="fab fa-twitter icon"></i>
                   </div>
                 </a>
 
                 <a
-                  href="https://in.linkedin.com/company/infovision"
+                  href="https://www.linkedin.com/in/info-eat-990215244"
                   target="_blank"
                 >
                   <div class="follow-us-icon-container">
@@ -225,7 +225,7 @@ const HomeScreen = () => {
                 </a>
 
                 <a
-                  href="https://www.facebook.com/infovisionhq/"
+                  href="https://www.facebook.com/"
                   target="_blank"
                 >
                   <div class="follow-us-icon-container">

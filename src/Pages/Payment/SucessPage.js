@@ -1,24 +1,16 @@
-import { React, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { loadProducts } from "../Cart/Reducer/Actions";
+import { React, useEffect,useState } from "react";
 import { Image } from "react-bootstrap";
-
-import { Card } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-
 import "./paymentpage.css";
+import axios from "axios";
 
-export const SuccessPage = (props) => {
-  const navigate = useNavigate();
+const SuccessPage = (props) => {
+  
+const [data,setData]=useState([])
 
-  const { users } = useSelector((state) => state.cart);
-
-  let dispatch = useDispatch();
-
-  useEffect(() => {
-    console.log("working");
-    dispatch(loadProducts());
+useEffect(() => {
+   axios.get("https://backend123.azurewebsites.net/infovision/cart?cartId=dec5ac08-14c2-4d61-bf6a-fc12eaa2597f").then((res)=>setData(res.data))
   }, []);
+  
   return (
     <div className="container">
       <div className="row">
@@ -33,15 +25,15 @@ export const SuccessPage = (props) => {
             </div>
 
             <div>
-              <p className="sucess-pay mt-5 pt-3">Payment Successful</p>
+              <p className="sucess-pay mt-5 pt-3">Order Placed Successfully</p>
             </div>
           </div>
 
           <h2 className="suces-thank">Thank You User</h2>
           <p className="suces-order">
-            Sit back and relax, your order's on its way !
+            Sit back and relax, your order is on the way !
           </p>
-          {users.map((prod) => (
+          {data.map((prod) => (
             <div key={prod.restaurantItem.itemId}>
               <div className="d-flex justify-content-between mt-2 mb-5 cont">
                 <div>
@@ -59,7 +51,7 @@ export const SuccessPage = (props) => {
                   </h1>
                 </div>
                 <div className="mt-5 mr-5 pr-5">
-                  <p className="succes-para">{prod.restaurantItem.itemprice}</p>
+                  <p className="succes-para">₹ {prod.restaurantItem.itemprice}</p>
                 </div>
               </div>
             </div>
@@ -69,3 +61,5 @@ export const SuccessPage = (props) => {
     </div>
   );
 };
+
+export default SuccessPage

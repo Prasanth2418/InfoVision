@@ -4,11 +4,13 @@ import "./menupage.css";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { AddCart } from "./Reducer/Action";
 
 const MenuPage = () => {
   const [data, setData] = useState([]);
   let dispatch =useDispatch()
+  let Navigate=useNavigate()
   useEffect(() => {
     axios
       .get(`https://backend123.azurewebsites.net/infovision/homepageview`)
@@ -19,7 +21,11 @@ const MenuPage = () => {
   const Addcart =(itemId)=>{
     dispatch(AddCart(data,itemId));
    };
- 
+   const ordernow = (itemId) => {
+
+    dispatch(AddCart(data, itemId));
+    Navigate("/cart")
+  };
 
   return (
     <div className="back">
@@ -50,7 +56,7 @@ const MenuPage = () => {
                   Add to cart
                 </button>{" "}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success"  onClick={() => ordernow(product.itemId)} >
                   Order Now
                 </button>
               </div>

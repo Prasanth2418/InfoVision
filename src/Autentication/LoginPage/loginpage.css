@@ -1,0 +1,50 @@
+.bg-img {
+    /* The image used */
+    background-image: url("https://cdn.pixabay.com/photo/2014/06/11/17/00/food-366875_960_720.jpg");
+     min-height: 380px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  
+}
+.card1{
+    height: 650px;
+    padding-top: 6%;
+   box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+    border-radius: 10px;
+    backdrop-filter:blur(100px);
+    background-color: rgba(250, 249, 249, 0.664);
+    padding-top: 5%;
+    /* text-align: center; */
+}
+.signin{
+    width: 100%;
+    background-color: #ff4e39;
+    color: white;
+}
+.gsignin{
+    width: 100%;
+    background-color:inherit;
+    color:black;
+    border: 1px solid black;
+}
+.signin:hover{
+    background-color: #ff4e39;
+    color: white    ;
+}
+.SignUp:hover{
+    color: #ff4e39;
+             }
+.SignUp{
+    color: #ff4e39;
+    text-decoration: none;
+    }
+.Forgot{
+    color: #ff4e39;
+    text-decoration: none;
+    margin-left: 30%;
+}
+.Forgot:hover{
+    color: #ff4e39;
+}

@@ -6,12 +6,13 @@ import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import "./menupage.css";
 import { AddCart } from "./Reducer/Action";
+import { useNavigate } from "react-router-dom";
 
 
 const Dinner = () => {
   const [data, setData] = useState([]);
   let dispatch =useDispatch()
-
+ const Navigate=useNavigate()
   useEffect(() => {
     axios
       .get(
@@ -23,7 +24,11 @@ const Dinner = () => {
    
     dispatch(AddCart(data,itemId));
    };
- 
+   const ordernow = (itemId) => {
+
+    dispatch(AddCart(data, itemId));
+    Navigate("/cart")
+  };
 
   return (
     <div>
@@ -54,7 +59,7 @@ const Dinner = () => {
                   Add to cart
                 </button>{" "}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success" onClick={() => ordernow(product.itemId)}>
                   Order Now
                 </button>
               </div>

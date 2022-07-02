@@ -26,12 +26,14 @@
 
   .resp2 {
     justify-content: center;
+  
   }
 
   .productContainer {
 
     padding: 0;
-
+  
+  
   }
 }
 
@@ -120,4 +122,19 @@
 .footer {
   display: flex;
   margin: 50px;
+}
+.payalert{
+  color: red;
+}
+.image23{
+  width:500px;
+  height: 150px;
+}
+.vertical{
+  border-left: 2px solid grey;
+  height: 400px;
+  position: absolute;
+  left: 95%;
+  margin-left: -3px;
+  top: 5px;
 }

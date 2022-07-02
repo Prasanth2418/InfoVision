@@ -3,7 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { loadProducts } from "./Reducer/Action";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
@@ -19,7 +19,7 @@ const BreakFast = () => {
   let { itemId } = useParams();
   const { users } = useSelector((state) => state.data);
   let dispatch = useDispatch()
-
+let Navigate=useNavigate()
 
   useEffect(() => {
     dispatch(loadProducts());
@@ -29,6 +29,11 @@ const BreakFast = () => {
   const Addcart = (itemId) => {
 
     dispatch(AddCart(data, itemId));
+  };
+  const ordernow = (itemId) => {
+
+    dispatch(AddCart(data, itemId));
+    Navigate("/cart")
   };
   return (
     <div>
@@ -59,7 +64,7 @@ const BreakFast = () => {
                   Add to cart
                 </button>{" "}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success" onClick={() => ordernow(product.itemId)}>
                   Order Now
                 </button>
               </div>

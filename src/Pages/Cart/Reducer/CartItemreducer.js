@@ -1,11 +1,11 @@
-import React from 'react'
+
 import * as types from "./ActionType";
 
 
 
 const initialState = {
-    users: [],
-    Requirement: {},
+    products: [],
+    product: {},
     loading: false,
 };
 
@@ -19,7 +19,7 @@ const CartItemreducer = (state = initialState, action) => {
         case types.GET_USERS:
             return {
                 ...state,
-                users: action.payload,
+                products: action.payload,
                 loading: false,
             }
 
