@@ -111,7 +111,7 @@ let dispatch = useDispatch();
           </Col>
           <Col sm={4}>
         
-            <div className="floor_details mt-5 ">
+            {/* <div className="floor_details mt-5 ">
               <h3 className=" ">Employee Details</h3>
               <div className="  fs-5">
                 <span>Emp Id : </span>
@@ -122,7 +122,7 @@ let dispatch = useDispatch();
                 <span>Mobile number :</span>
               </div>
             </div>
-        
+         */}
             <br />
             <div className="floor_details">
               <h3 className=" ">Bill Summary</h3>

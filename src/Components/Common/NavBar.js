@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react";
 import "./navbar.css";
 import axios from "axios"
 import Logo from "../../Assets/Images/logo.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import { Badge } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -23,10 +23,16 @@ const NavBar = () => {
   const Navigate = useNavigate();
   const [search, setsearch] = useState();
   const [data,setData]=useState([])
+  const[profile,setProfile]=useState([])
   const auth = getAuth();
+  let {profileId}=useParams
   useEffect(() => {
     axios.get("https://backend123.azurewebsites.net/infovision/cart?cartId=dec5ac08-14c2-4d61-bf6a-fc12eaa2597f").then((res)=>setData(res.data))
   }, []);
+
+  useEffect(()=>{
+    axios.get("https://backend123.azurewebsites.net/infovision/registerforemployee?empId=1973").then((res)=>setProfile(res.data))
+  })
   return (
     <div className="header">
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -94,12 +100,12 @@ const NavBar = () => {
           </StyledBadge>
         </IconButton>{" "}
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        
+        <a   onClick={() => Navigate("/ViewProfile")}>
         <Avatar
           alt="profile"
           className="profile"
           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZSUyMHNob3R8ZW58MHx8MHx8&w=1000&q=80"
-        />&nbsp; &nbsp;
+        /></a>&nbsp; &nbsp; 
         <button className="logout" onClick={()=>signOut(auth).then(Navigate("/"))}>LogOut</button>
         &nbsp; &nbsp; &nbsp;
       </nav>
