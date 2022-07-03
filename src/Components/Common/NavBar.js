@@ -59,7 +59,7 @@ const NavBar = () => {
                   data-hover="Break Fast"
                   className="text"
                 >
-                  Break Fast
+                  Breakfast
                 </button>
               </li>
               <li>
