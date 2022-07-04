@@ -1,7 +1,10 @@
 .delete{
-    color: red;
+    color:black;
     text-decoration: none;
 }
 .delete:hover{
     text-decoration:none;
+}
+.labels{
+    color: white;
 }
