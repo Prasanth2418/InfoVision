@@ -2,14 +2,14 @@ import React, { useState,useEffect } from "react";
 import "./navbar.css";
 import axios from "axios"
 import Logo from "../../Assets/Images/logo.png";
-import { useNavigate,useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import { Badge } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { getAuth, signOut } from "firebase/auth"
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-import Avatar from "@mui/material/Avatar";
+
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -21,18 +21,14 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 const NavBar = () => {
   const Navigate = useNavigate();
-  const [search, setsearch] = useState();
-  const [data,setData]=useState([])
-  const[profile,setProfile]=useState([])
-  const auth = getAuth();
-  let {profileId}=useParams
+ const [data,setData]=useState([])
+ const auth = getAuth();
+
   useEffect(() => {
     axios.get("https://backend123.azurewebsites.net/infovision/cart?cartId=dec5ac08-14c2-4d61-bf6a-fc12eaa2597f").then((res)=>setData(res.data))
   }, []);
 
-  useEffect(()=>{
-    axios.get("https://backend123.azurewebsites.net/infovision/registerforemployee?empId=1973").then((res)=>setProfile(res.data))
-  })
+
   return (
     <div className="header">
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -59,7 +55,7 @@ const NavBar = () => {
                   data-hover="Break Fast"
                   className="text"
                 >
-                  Break Fast
+                  BreakFast
                 </button>
               </li>
               <li>
@@ -100,14 +96,23 @@ const NavBar = () => {
           </StyledBadge>
         </IconButton>{" "}
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a   onClick={() => Navigate("/ViewProfile")}>
-        <Avatar
-          alt="profile"
-          className="profile"
-          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZSUyMHNob3R8ZW58MHx8MHx8&w=1000&q=80"
-        /></a>&nbsp; &nbsp; 
-        <button className="logout" onClick={()=>signOut(auth).then(Navigate("/"))}>LogOut</button>
-        &nbsp; &nbsp; &nbsp;
+        <div class="dropdown">
+       
+ 
+  <img src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg" alt="Avatar" class="avatar" id="dropdownMenuButton" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false"/>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <button class="dropdown-item" onClick={()=>(Navigate("/ViewProfile"))}>View Profile</button>
+    <hr/>
+    <button class="dropdown-item" href="#">Help</button>
+    <hr/>
+    <button class="dropdown-item" href="#">Settings</button>
+    <hr/>
+    <button class="dropdown-item logout"onClick={()=>signOut(auth).then(Navigate("/"))}>LogOut</button>
+  </div>
+</div>
+        
+        &nbsp; &nbsp; &nbsp;    &nbsp; &nbsp; &nbsp;
       </nav>
     </div>
   );

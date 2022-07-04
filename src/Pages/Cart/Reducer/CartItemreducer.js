@@ -16,12 +16,7 @@ const CartItemreducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
             };
-        case types.GET_USERS:
-            return {
-                ...state,
-                products: action.payload,
-                loading: false,
-            }
+       
 
         default:
             return state;

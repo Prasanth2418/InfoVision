@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "../LoginPage/loginpage.css";
-// import Image from "../../Assets/Images/Image.PNG";
 import { FcGoogle } from "react-icons/fc";
-import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { sendPasswordResetEmail } from "firebase/auth";
@@ -55,7 +53,7 @@ const LoginPage = () => {
 
 
 
-  const Navigate = useNavigate();
+ 
 
   return (
     <section className="bg-img vh-100">
@@ -132,17 +130,7 @@ const LoginPage = () => {
              
 
             </form>
-            <br />
-            <center>
-              Don`t have an Account? &nbsp;
-              <a
-                href="#"
-                className="SignUp"
-                onClick={() => Navigate("/SignUp")}
-              >
-                SignUp
-              </a>
-            </center>
+           
           </div>
         </div>
       </div>
