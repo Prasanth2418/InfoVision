@@ -119,7 +119,7 @@ let dispatch = useDispatch();
                 <br />
                 <span>Total price : ₹ {total} </span>
                 <br />
-                <span>Shipping Charge : ₹ 30 </span>
+                <span>Delivery Charge : ₹ 30 </span>
                 <br />
               </div>
             </div>
