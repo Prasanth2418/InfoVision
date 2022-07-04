@@ -3,7 +3,10 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 
 const ViewProfile = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({
+email:"user@gmail.com",
+city:"Hyderabad "
+  });
   const {
     firstName,
     lastName,
@@ -33,10 +36,11 @@ const ViewProfile = () => {
               <img
                 className="rounded-circle mt-5"
                 width="150px"
-                src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+                height="150px"
+                src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
               />
               <span className="font-weight-bold">ID: {data.empId}</span>
-              <span className="text-black-50"></span>
+              <span className="text-black-50">user@gmail.com</span>
               <span> </span>
             </div>
           </div>
@@ -53,7 +57,7 @@ const ViewProfile = () => {
                     className="form-control"
                     placeholder="first name"
                     name="firstName"
-                    value={firstName}
+                    value={data.firstName}
                     onChange={handleChange}
                   />
                 </div>
@@ -63,7 +67,7 @@ const ViewProfile = () => {
                     type="text"
                     className="form-control"
                     name='lastName'
-                    value={lastName}
+                    value={data.lastName}
                     placeholder="Last Name"
                     onChange={handleChange}
                   />
@@ -77,7 +81,7 @@ const ViewProfile = () => {
                     className="form-control"
                     placeholder="enter phone number"
                     name="mobileNumber"
-                    Value={mobileNumber}
+                    Value={data.mobileNumber}
                     onChange={handleChange}
                   />
                 </div>
@@ -88,7 +92,7 @@ const ViewProfile = () => {
                     className="form-control"
                     placeholder="EmployeeId"
                     name="employeeId"
-                    value={employeeId}
+                    value={data.employeeId}
                     onChange={handleChange}
                   />
                 </div>
@@ -146,7 +150,8 @@ const ViewProfile = () => {
                   type="button"
                 >
                   Edit Profile
-                </button>
+                </button> <br/>  <br/>
+               <a href="#"><small>Delete Profile</small></a> 
               </div>
             </div>
           </div>

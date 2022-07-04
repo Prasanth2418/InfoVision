@@ -101,7 +101,7 @@ const NavBar = () => {
  
   <img src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg" alt="Avatar" class="avatar" id="dropdownMenuButton" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false"/>
 
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
     <button class="dropdown-item" onClick={()=>(Navigate("/ViewProfile"))}>View Profile</button>
     <hr/>
     <button class="dropdown-item" href="#">Help</button>
@@ -112,7 +112,7 @@ const NavBar = () => {
   </div>
 </div>
         
-        &nbsp; &nbsp; &nbsp;    &nbsp; &nbsp; &nbsp;
+        &nbsp;  
       </nav>
     </div>
   );
