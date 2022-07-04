@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
+import DeleteIcon from '@mui/icons-material/Delete';
+import "./viewprofile.css"
 
 const ViewProfile = () => {
   const [data, setData] = useState({
@@ -150,8 +152,8 @@ city:"Hyderabad "
                   type="button"
                 >
                   Edit Profile
-                </button> <br/>  <br/>
-               <a href="#"><small>Delete Profile</small></a> 
+                </button> <br/>  <br/> <br/> <br/> <br/>
+               <a href="#"><small className="delete"><DeleteIcon/>Delete Profile</small></a> 
               </div>
             </div>
           </div>

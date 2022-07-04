@@ -8,6 +8,10 @@ import { Badge } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { getAuth, signOut } from "firebase/auth"
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import LogoutIcon from '@mui/icons-material/Logout';
+import SettingsIcon from '@mui/icons-material/Settings';
+import HelpIcon from '@mui/icons-material/Help';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
 
@@ -102,13 +106,13 @@ const NavBar = () => {
   <img src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg" alt="Avatar" class="avatar" id="dropdownMenuButton" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false"/>
 
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-    <button class="dropdown-item" onClick={()=>(Navigate("/ViewProfile"))}>View Profile</button>
+    <button class="dropdown-item" onClick={()=>(Navigate("/ViewProfile"))}><AccountCircleIcon/> View Profile</button>
     <hr/>
-    <button class="dropdown-item" href="#">Help</button>
+    <button class="dropdown-item" href="#"><HelpIcon/> Help</button>
     <hr/>
-    <button class="dropdown-item" href="#">Settings</button>
+    <button class="dropdown-item" href="#"><SettingsIcon/> Settings</button>
     <hr/>
-    <button class="dropdown-item logout"onClick={()=>signOut(auth).then(Navigate("/"))}>LogOut</button>
+    <button class="dropdown-item logout"onClick={()=>signOut(auth).then(Navigate("/"))}><LogoutIcon/>LogOut</button>
   </div>
 </div>
         
