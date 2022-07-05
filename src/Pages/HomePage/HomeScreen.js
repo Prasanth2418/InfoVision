@@ -84,7 +84,7 @@ const HomeScreen = () => {
                   class="menu-item-image w-100"
                 />
                 <div className="d-flex justify-content-around">
-                  <h1 class="menu-card-title">BreakFast</h1>
+                  <h1 class="menu-card-title">Breakfast</h1>
                   <button
                     class="menu-item-link"
                     onClick={() => Navigate("/Breakfast")}

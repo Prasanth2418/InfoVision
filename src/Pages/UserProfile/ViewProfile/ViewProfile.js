@@ -30,8 +30,8 @@ city:"Hyderabad "
   }
 
   return (
-    <div>
-      <div className="container rounded bg-white mt-5 mb-5">
+    <div className="back">
+      <div className="container rounded  mt-5 mb-5">
         <div className="row">
           <div className="col-md-3 border-right">
             <div className="d-flex flex-column align-items-center text-center p-3 py-5">
@@ -41,15 +41,15 @@ city:"Hyderabad "
                 height="150px"
                 src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
               />
-              <span className="font-weight-bold">ID: {data.empId}</span>
-              <span className="text-black-50">user@gmail.com</span>
+              <span className="font-weight-bold labels">ID: {data.empId}</span>
+              <span className="text-white-50 labels">user@gmail.com</span>
               <span> </span>
             </div>
           </div>
           <div className="col-md-5 border-right">
             <div className="p-3 py-5">
               <div className="d-flex justify-content-between align-items-center mb-3">
-                <h4 className="text-right">Profile Settings</h4>
+                <h4 className="text-right labels">Profile Settings</h4>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">

@@ -57,6 +57,7 @@
     color: #5a7184;
     font-family: "Roboto";
     font-size: 16px;
+
 }
 
 .wcu-card {
@@ -66,6 +67,7 @@
     border-width: 1px;
     border-color: #e5eaf4;
     border-radius: 16px;
+    height:300px
 }
 
 .wcu-card-image {
