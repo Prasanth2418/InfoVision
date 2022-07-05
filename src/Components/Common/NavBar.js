@@ -108,7 +108,7 @@ const NavBar = () => {
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
     <button class="dropdown-item" onClick={()=>(Navigate("/ViewProfile"))}><AccountCircleIcon/> View Profile</button>
     <hr/>
-    <button class="dropdown-item" href="#"><HelpIcon/> Help</button>
+    <button class="dropdown-item" onClick={() => (Navigate("/Help"))}><HelpIcon/> Help</button>
     <hr/>
     <button class="dropdown-item" href="#"><SettingsIcon/> Settings</button>
     <hr/>

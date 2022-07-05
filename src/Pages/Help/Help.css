@@ -1,0 +1,8 @@
+.help{
+    height: 650px;
+   box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+    border-radius: 10px;
+    backdrop-filter:blur(100px);
+    padding-top: 5%;
+    
+}

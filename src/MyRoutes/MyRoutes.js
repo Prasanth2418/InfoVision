@@ -10,6 +10,7 @@ import HomeScreen from "../Pages/HomePage/HomeScreen";
 import Form from "../Autentication/SignUpPage/SignUpPage";
 import SuccessPage from "../Pages/Payment/SucessPage"
 import ViewProfile from "../Pages/UserProfile/ViewProfile/ViewProfile";
+import Help from "../Pages/Help/Help";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/Success" element={<SuccessPage />} />
         <Route path="/ViewProfile" element={<ViewProfile/>}/>
+        <Route path="/Help" element={<Help/>}/>
       </Routes>
     </>
   );
